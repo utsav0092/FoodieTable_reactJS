@@ -12,7 +12,7 @@ const Home = () => {
       <CategoryMenu />
       <FoodItems />
       <Cart />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
