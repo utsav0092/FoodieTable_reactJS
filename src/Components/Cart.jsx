@@ -6,15 +6,19 @@ import { IoIosCart } from "react-icons/io";
 
 const Cart = () => {
 
-    const [activeCart, setActiveCart] = useState(false);
+    const [activeCart, setActiveCart] = useState(false); 
 
-    // ()=> setActiveCart(!activeCart)
+    // ()=> setActiveCart(!activeCart) will also work
     const handleCartActive = () => {
         setActiveCart(!activeCart);
     }
 
     //Cart => Store:reducers{cart} => CartSlice:cart[] for understanding this path
     const cartItems = useSelector((state) => state.cart.cart);
+
+    const totalQty = cartItems.reduce((totalQty, item) => totalQty + item.qty, 0);
+
+    const totalPrice = cartItems.reduce((totalpri, item) => totalpri + item.qty * item.price, 0);
 
     return (
         <>
@@ -25,7 +29,7 @@ const Cart = () => {
                 </div>
 
                 {
-                    cartItems.map((food) => {
+                    cartItems.length > 0 ? cartItems.map((food) => {
                         return (
                             <ItemCard
                                 key={food.id}
@@ -35,17 +39,22 @@ const Cart = () => {
                                 img={food.img}
                                 qty={food.qty} />
                         );
-                    })
+                    }) :
+                        <h2 className=' pt-10 text-center text-xl font-bold text-gray-400'>Your cart is empty</h2>
                 }
 
                 <div className='p-5 absolute bottom-0 bg-white'>
-                    <h3 className='font-bold text-gray-800'>Items :- 5</h3>
-                    <h3 className='font-bold text-gray-800'>Total Amount :- ₹220</h3>
+                    <h3 className='font-bold text-gray-800'>Items :- {totalQty}</h3>
+                    <h3 className='font-bold text-gray-800'>Total Amount :- ₹{totalPrice}</h3>
                     <hr className='mt-4 mb-6' />
                     <button className='bg-green-500 font-bold px-3 text-white py-2 rounded-lg hover:bg-green-600 duration-150 ease-linear hover:shadow-xl w-[87vw] lg:w-[21vw]'>Check out</button>
                 </div>
             </div>
-            <IoIosCart className='rounded-full fixed bg-white shadow-xl text-5xl p-2 hover:bg-gray-400 duration-150 ease-linear bottom-10 right-2' onClick={handleCartActive} />
+
+            <div className='bg-red-600 w-[20px] h-[20px] text-center flex justify-center items-center rounded-full text-white font-normal fixed bottom-20 right-2 z-10'>{totalQty}
+            </div>
+
+            <IoIosCart className={`rounded-full fixed bg-white hover:shadow-xl text-6xl p-2 hover:bg-gray-300 duration-150 ease-linear bottom-10 right-2 ${totalQty > 0 ? "border-green-600 border" : "border border-red-600"}`} onClick={handleCartActive} />
         </>
     );
 }
