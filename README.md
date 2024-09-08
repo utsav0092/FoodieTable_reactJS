@@ -14,3 +14,5 @@ Currently, two official plugins are available:
   position="top-center"
   reverseOrder={false}
 /> -->
+<!-- // react-spinners for loading animation -->
+<!-- npm i --save react-spinners -->

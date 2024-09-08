@@ -6,7 +6,7 @@ import { setCategory } from "../redux/slices/CategorySlice";
 const CategoryMenu = () => {
     const [categories, setCategories] = useState([]);
     const dispatch = useDispatch();
-    
+
     const selectedCategory = useSelector((state) => state.category.category);
 
     const listUniqueCategories = () => {
@@ -15,6 +15,7 @@ const CategoryMenu = () => {
         ];
         setCategories(uniqueCategories);
     };
+
 
     useEffect(() => {
         listUniqueCategories();
@@ -26,7 +27,7 @@ const CategoryMenu = () => {
             <div className='my-2 flex lg:gap-4 gap-3 overflow-x-scroll scroll-smooth lg:overflow-x-hidden lg:justify-center'>
                 <button
                     className={`duration-200 px-4 py-2 bg-gray-200 font-bold rounded-lg hover:bg-green-600 hover:text-white 
-                            ${selectedCategory === "All" && "bg-green-600 text-white"}`}
+                             ${selectedCategory === "All" && "bg-green-600 text-white"}`}
                     onClick={() => dispatch(setCategory("All"))}>
                     All
                 </button>
@@ -34,7 +35,7 @@ const CategoryMenu = () => {
                 {categories.map((category, index) => (
                     <button
                         className={`duration-200 px-4 py-2 bg-gray-200 font-bold rounded-lg hover:bg-green-600 hover:text-white 
-                                  ${selectedCategory === category && "bg-green-600 text-white"}`}
+                                 ${selectedCategory === category && "bg-green-600 text-white"}`}
                         key={index}
                         onClick={() => dispatch(setCategory(category))}>
                         {category}

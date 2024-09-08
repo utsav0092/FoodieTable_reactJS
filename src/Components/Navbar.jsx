@@ -1,8 +1,13 @@
 import React from 'react';
 import { IoFastFood } from "react-icons/io5";
 import { IoMdSearch } from "react-icons/io";
+import { useDispatch } from 'react-redux';
+import { setSearch } from '../redux/slices/SearchSlice';
 
 function Navbar() {
+
+    const dispatch = useDispatch();
+
     return (
         <nav className='flex justify-between flex-col lg:flex-row px-6 py-3 cursor-pointer bg-green-800'>
             <div>
@@ -13,8 +18,10 @@ function Navbar() {
                 <h3 className='text-xl font-bold text-white mt-1'>{new Date().toUTCString().slice(0, 16)}</h3>
             </div>
             <div className='flex items-center lg:mt-2 mt-5 mb-2 lg:mb-5 relative'>
-                <IoMdSearch className='text-4xl absolute right-2' />
-                <input type="search" name='search' id='search' placeholder='Search here' autoComplete='off' className='p-3 border border-gray-400 text-sm rounded-lg outline-none w-full lg:w-[25vw] lg:focus:w-[26vw] duration-150 ease-linear border-none' />
+                <input type="search" name='search' id='search' placeholder='Search here' autoComplete='off' className='p-3 border border-gray-400 text-sm rounded-lg outline-none w-full lg:w-[25vw] lg:focus:w-[26vw] duration-150 ease-linear border-none'
+                    onChange={(e) => dispatch(setSearch(e.target.value))} />
+
+                <IoMdSearch className='text-4xl absolute right-1' />
             </div>
         </nav>
     );

@@ -3,10 +3,13 @@ import { IoMdClose } from 'react-icons/io';
 import { ItemCard } from './ItemCard';
 import { useSelector } from 'react-redux';
 import { IoIosCart } from "react-icons/io";
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
 
-    const [activeCart, setActiveCart] = useState(false); 
+    const [activeCart, setActiveCart] = useState(false);
+
+    const navigate = useNavigate();
 
     // ()=> setActiveCart(!activeCart) will also work
     const handleCartActive = () => {
@@ -47,7 +50,8 @@ const Cart = () => {
                     <h3 className='font-bold text-gray-800'>Items :- {totalQty}</h3>
                     <h3 className='font-bold text-gray-800'>Total Amount :- ₹{totalPrice}</h3>
                     <hr className='mt-4 mb-6' />
-                    <button className='bg-green-500 font-bold px-3 text-white py-2 rounded-lg hover:bg-green-600 duration-150 ease-linear hover:shadow-xl w-[87vw] lg:w-[21vw]'>Check out</button>
+                    {/* Path is added in App.jsx */}
+                    <button className='bg-green-500 font-bold px-3 text-white py-2 rounded-lg hover:bg-green-600 duration-150 ease-linear hover:shadow-xl w-[87vw] lg:w-[21vw]' onClick={() => navigate("./success")}>Check out</button>
                 </div>
             </div>
 
