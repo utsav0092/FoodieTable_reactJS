@@ -16,3 +16,4 @@ Currently, two official plugins are available:
 /> -->
 <!-- // react-spinners for loading animation -->
 <!-- npm i --save react-spinners -->
+<p>Credit goes to:- <a>https://youtu.be/MF6iLOZeL4Y</a> </p>
