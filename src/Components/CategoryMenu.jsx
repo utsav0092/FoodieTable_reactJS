@@ -22,8 +22,9 @@ const CategoryMenu = () => {
     }, []);
 
     return (
-        <div className='mb-8 lg:mb-10 bg-yellow-400 p-10 shadow-lg'>
-            <h3 className='text-2xl font-bold lg:text-center mb-4'>Find the best food of the Time</h3>
+        <div className='mb-8 lg:mb-10 bg-yellow-400 p-10 shadow-xl'>
+            <h3 className='text-2xl font-bold lg:text-center mb-2'>Find the best food for the Time</h3>
+            <h4 className='text-lg font-bold lg:text-center mb-4 text-green-800'>Click to All to see all delicious food items</h4>
             <div className='my-2 flex lg:gap-4 gap-3 overflow-x-scroll scroll-smooth lg:overflow-x-hidden lg:justify-center'>
                 <button
                     className={`duration-200 px-4 py-2 bg-gray-200 font-bold rounded-lg hover:bg-green-600 hover:text-white 

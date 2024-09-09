@@ -4,7 +4,7 @@ import centerImg from '../assets/centerImg.jpg';
 const CenterImg = () => {
     return (
         <div>
-            <img src={centerImg} alt="Image banner" className='h-[70vh] w-full' />
+            <img src={centerImg} alt="Image banner" className='h-[60vh] w-full' />
         </div>
     );
 }

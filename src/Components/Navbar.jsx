@@ -9,7 +9,7 @@ function Navbar() {
     const dispatch = useDispatch();
 
     return (
-        <nav className='flex justify-between flex-col lg:flex-row px-6 py-3 cursor-pointer bg-green-800'>
+        <nav className='flex justify-between flex-col lg:flex-row px-6 py-3 cursor-pointer bg-green-800 sticky top-0 shadow-xl'>
             <div>
                 <div className='flex items-center gap-2 lg:p-1 p-2 justify-center mb-2 lg:mb-0'>
                     <IoFastFood className='text-[31px] text-yellow-600' />
